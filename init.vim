@@ -12,10 +12,10 @@
 
 
 " gf to move to file under cursor
-source $XDG_CONFIG_HOME/nvim/config/plugins.vim
-source $XDG_CONFIG_HOME/nvim/config/plugin-settings.vim
-source $XDG_CONFIG_HOME/nvim/config/keyboard-mappings.vim
-source $XDG_CONFIG_HOME/nvim/config/system-specifics.vim
+source $HOME/.config/nvim/config/plugins.vim
+source $HOME/.config/nvim/config/plugin-settings.vim
+source $HOME/.config/nvim/config/keyboard-mappings.vim
+source $HOME/.config/nvim/config/system-specifics.vim
 
 set visualbell t_vb=
 set sts=4 ts=4 sw=4

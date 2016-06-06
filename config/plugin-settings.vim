@@ -1,9 +1,8 @@
 """""""""""""""""""""""""""""""
-" => YCM
+" => Deoplete
 """""""""""""""""""""""""""""""
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
+let g:deoplete#enable_at_startup=1
+
 
 """""""""""""""""""""""""""""""
 " => DelimitMate

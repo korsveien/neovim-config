@@ -3,6 +3,15 @@
 """""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup=1
 
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" deoplete-ternjs
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 0
+
 
 """""""""""""""""""""""""""""""
 " => DelimitMate

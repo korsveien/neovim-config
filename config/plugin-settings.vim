@@ -1,22 +1,8 @@
-"""""""""""""""""""""""""""""""
-" => Deoplete
-"""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup=1
-
-" Let <Tab> also do completion
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ deoplete#mappings#manual_complete()
-
-" deoplete-ternjs
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 0
-
 
 """""""""""""""""""""""""""""""
 " => DelimitMate
 """""""""""""""""""""""""""""""
-au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+au FileType vim,html,elm let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 """""""""""""""""""""""""""""""
 " => Tagbar
@@ -27,11 +13,26 @@ nmap <C-l> :TagbarToggle<cr>
 " => elm-vim
 """""""""""""""""""""""""""""""
 let g:elm_jump_to_error = 1
-let g:elm_make_output_file = "/tmp"
+let g:elm_make_output_file = "make/out.js"
 let g:elm_make_show_warnings = 0
 " let g:elm_browser_command = ""
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
+let g:elm_setup_keybindings = 0
+
+"""""""""""""""""""""""""""""""
+" => Syntastic
+"""""""""""""""""""""""""""""""
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+
+"""""""""""""""""""""""""""""""
+" => YCM
+"""""""""""""""""""""""""""""""
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 """""""""""""""""""""""""""""""
 " => Tern
@@ -91,17 +92,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-"""""""""""""""""""""""""""""""
-" => neomake
-"""""""""""""""""""""""""""""""
-autocmd! BufWritePost * Neomake
-
-let g:neomake_elm_make_maker = {
-            \ 'exe': 'elm-make',
-            \ 'errorformat': '%f:%l:%c: %m',
-            \ }
-
 
 """""""""""""""""""""""""""""""
 " => Ag

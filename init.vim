@@ -24,6 +24,6 @@ set nu
 set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
-colorscheme Tomorrow-Night
+colorscheme jelleybeans
 
 

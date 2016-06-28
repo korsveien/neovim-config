@@ -68,6 +68,7 @@ nmap <C-h> :NERDTreeToggle<CR>
 " => Emmet
 """""""""""""""""""""""""""""""
 let g:use_emmet_complete_tag = 1
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 """""""""""""""""""""""""""""""
 " => Airline

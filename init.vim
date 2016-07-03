@@ -1,4 +1,4 @@
-: peder.korsveien@gmail.com
+" peder.korsveien@gmail.com
 " Available From: https://github.com/pederpus/dotvim
 "
 " The following urls are some of my inspirational sources for setting up

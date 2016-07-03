@@ -19,7 +19,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 
 " Automatic closing of parens, quotes etc.

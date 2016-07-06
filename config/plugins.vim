@@ -14,12 +14,14 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'plasticboy/vim-markdown'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
+
 Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
 
 " Automatic closing of parens, quotes etc.
 Plug 'Raimondi/delimitMate'
@@ -32,6 +34,9 @@ Plug 'marijnh/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/neco-ghc'
 
 " omnicomplete and syntax for html5
 Plug 'othree/html5.vim'
@@ -46,11 +51,8 @@ Plug 'flazz/vim-colorschemes'
 " Elm
 Plug 'elmcast/elm-vim'
 
-" Golang
-Plug 'fatih/vim-go'
-
-" Live editing of markdown and html/css
+" Live editing of markdown
 Plug 'shime/vim-livedown'
-Plug 'jaxbot/browserlink.vim'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()

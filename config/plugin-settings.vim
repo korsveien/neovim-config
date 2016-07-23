@@ -20,6 +20,8 @@ let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
 
+
+
 """""""""""""""""""""""""""""""
 " => Syntastic
 """""""""""""""""""""""""""""""
@@ -28,11 +30,22 @@ let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 
 """""""""""""""""""""""""""""""
-" => YCM
+" => Deoplete
 """""""""""""""""""""""""""""""
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.elm = '[a-zA-Z_\.]'
+
+" tab for cycling through options
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" enter closes options if present and inserts linebreak
+" apparently this has to be that complicated
+inoremap <silent> <CR> <C-r>=<SID>close_and_linebreak()<CR>
+function! s:close_and_linebreak()
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
+
 
 """""""""""""""""""""""""""""""
 " => Tern
@@ -68,7 +81,7 @@ nmap <C-h> :NERDTreeToggle<CR>
 " => Emmet
 """""""""""""""""""""""""""""""
 let g:use_emmet_complete_tag = 1
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 """""""""""""""""""""""""""""""
 " => Airline

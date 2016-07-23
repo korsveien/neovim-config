@@ -18,7 +18,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'

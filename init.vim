@@ -1,5 +1,4 @@
 source $HOME/.config/nvim/config/plugins.vim
-source $HOME/.config/nvim/config/plugin-settings.vim
 source $HOME/.config/nvim/config/keyboard-mappings.vim
 source $HOME/.config/nvim/config/system-specifics.vim
 
@@ -12,7 +11,6 @@ tnoremap <C-[> <C-\><C-n>
 
 colorscheme jelleybeans
 
-
 " peder.korsveien@gmail.com
 " Available From: https://github.com/pederpus/dotvim
 "
@@ -23,7 +21,3 @@ colorscheme jelleybeans
 " https://github.com/amix/vimrc
 " http://www.8t8.us/vim/vim.html
 " http://dougblack.io/words/a-good-vimrc.html
-
-
-
-" gf to move to file under cursor

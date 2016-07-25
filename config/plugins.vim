@@ -27,6 +27,12 @@ let g:elm_syntastic_show_warnings = 1
 """""""""""""""""""""""""""""""
 " => Deoplete
 """""""""""""""""""""""""""""""
+" Note: deoplete requires Neovim(latest is recommended) with Python3 enabled.
+" If ":echo has('python3')" returns `1`, then you're done; otherwise, see below.
+
+" You can enable Python3 interface with pip: >
+" $ pip3 install neovim
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction

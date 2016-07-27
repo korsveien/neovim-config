@@ -9,9 +9,10 @@ set nu
 set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
-colorscheme jelleybeans
+set background=dark
+colorscheme jellybeans
 
-" peder.korsveien@gmail.com
+" peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim
 "
 " The following urls are some of my inspirational sources for setting up

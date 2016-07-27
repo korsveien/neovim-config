@@ -1,6 +1,15 @@
 let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
+"""""""""""""""""""""""""""""""
+" => Jellybeans
+"""""""""""""""""""""""""""""""
+Plug 'nanotech/jellybeans.vim'
+let g:jellybeans_overrides = {
+\		'Search': { 'guifg': '303030', 'guibg': 'f0f000',
+\				    'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\			        'attr': 'bold' }
+\}
 
 """""""""""""""""""""""""""""""
 " => Elm
@@ -28,9 +37,9 @@ let g:elm_syntastic_show_warnings = 1
 " => Deoplete
 """""""""""""""""""""""""""""""
 " Note: deoplete requires Neovim(latest is recommended) with Python3 enabled.
-" If ":echo has('python3')" returns `1`, then you're done; otherwise, see below.
-
-" You can enable Python3 interface with pip: >
+" Pro tip: Check if ":echo has('python3')" returns `1`
+"
+" If it returns 0, run (or if it returns 1, but deoplete still does not work):
 " $ pip3 install neovim
 
 function! DoRemote(arg)
@@ -118,9 +127,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 Plug 'SirVer/ultisnips'
 
 " This plugins conflicts with ycm when using tab
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 """""""""""""""""""""""""""""""
 " => Ag (searching code)
@@ -140,8 +149,8 @@ Plug 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <C-k> <Plug>(expand_region_expand)
+map <C-j> <Plug>(expand_region_shrink)
 
 """""""""""""""""""""""""""""""
 " => Tim Pope essentials
@@ -181,7 +190,6 @@ Plug 'othree/html5.vim'
 Plug 'gorodinskiy/vim-coloresque'
 
 " Color themes
-Plug 'flazz/vim-colorschemes'
 
 
 call plug#end()

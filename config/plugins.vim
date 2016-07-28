@@ -1,15 +1,6 @@
 let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
-"""""""""""""""""""""""""""""""
-" => Jellybeans
-"""""""""""""""""""""""""""""""
-Plug 'nanotech/jellybeans.vim'
-let g:jellybeans_overrides = {
-\		'Search': { 'guifg': '303030', 'guibg': 'f0f000',
-\				    'ctermfg': 'Black', 'ctermbg': 'Yellow',
-\			        'attr': 'bold' }
-\}
 
 """""""""""""""""""""""""""""""
 " => Elm
@@ -49,18 +40,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.elm = '[a-zA-Z_\.]'
+let g:deoplete#omni_patterns.elm = '[a-zA-Z_\.]{2,0}'
 
-" tab for cycling through options
-inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" enter closes options if present and inserts linebreak
-" apparently this has to be that complicated
-inoremap <silent> <CR> <C-r>=<SID>close_and_linebreak()<CR>
-function! s:close_and_linebreak()
-	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 """""""""""""""""""""""""""""""
 " => JS (tern, jsx)
@@ -189,7 +172,19 @@ Plug 'othree/html5.vim'
 " css inline color preview
 Plug 'gorodinskiy/vim-coloresque'
 
-" Color themes
 
+"""""""""""""""""""""""""""""""
+" => Color themes
+"""""""""""""""""""""""""""""""
+" Jellybeans
+Plug 'nanotech/jellybeans.vim'
+let g:jellybeans_overrides = {
+\		'Search': { 'guifg': '303030', 'guibg': 'f0f000',
+\				    'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\			        'attr': 'bold' }
+\}
+
+" Solarized
+Plug 'arakashic/nvim-colors-solarized'
 
 call plug#end()

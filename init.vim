@@ -9,8 +9,9 @@ set nu
 set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
-set background=dark
-colorscheme jellybeans
+set background=light
+" colorscheme solarized
+au VimEnter * colorscheme solarized
 
 " peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim

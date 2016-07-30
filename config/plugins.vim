@@ -98,10 +98,12 @@ let g:airline_section_b = '%{getcwd()}'
 let g:airline_section_c = '%t'
 let g:airline_section_z='%{fugitive#head()}'
 
+" Enable/Disable buffer display on top bar
+let g:airline#extensions#tabline#enabled = 0
+
 " Displays all buffers when only one tab is open
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 
 
 """""""""""""""""""""""""""""""

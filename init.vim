@@ -10,8 +10,7 @@ set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
 set background=light
-" colorscheme solarized
-au VimEnter * colorscheme solarized
+colorscheme solarized
 
 " peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim

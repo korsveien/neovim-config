@@ -9,8 +9,8 @@ set nu
 set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme desert
 
 " peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim

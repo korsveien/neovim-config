@@ -10,7 +10,7 @@ set noswapfile
 tnoremap <C-[> <C-\><C-n>
 
 set background=dark
-colorscheme desert
+colorscheme jellybeans
 
 " peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim

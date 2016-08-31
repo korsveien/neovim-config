@@ -9,6 +9,12 @@ sudo apt-get install neovim
 
 ``sudo apt-get install python-dev python-pip python3-dev python3-pip``
 
+
+### Deoplete
+```pip3 install neovim```
+
+And run ``:UpdateRemotePlugins`` and restart neovim
+
 If you want to use Neovim for some (or all) of the editor alternatives, use the following commands:
 
 ```

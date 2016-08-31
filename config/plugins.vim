@@ -186,8 +186,4 @@ let g:jellybeans_overrides = {
 \			        'attr': 'bold' }
 \}
 
-" Solarized
-Plug 'arakashic/nvim-colors-solarized'
-call togglebg#map("<F5>")
-
 call plug#end()

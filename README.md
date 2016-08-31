@@ -16,7 +16,7 @@ sudo apt-get install neovim
 And run ``:UpdateRemotePlugins`` and restart neovim
 
 
-### Run neovim when enterin `vim` in a terminal
+### Run neovim when entering `vim` in a terminal
 
 If you want to use Neovim for some (or all) of the editor alternatives, use the following commands:
 

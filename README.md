@@ -1,4 +1,4 @@
-## Installing NeoVim on Xubuntu
+## Installing NeoVim on Ubuntu
 ```
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable

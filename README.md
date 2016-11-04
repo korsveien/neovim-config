@@ -1,3 +1,5 @@
+Clone this repo to `$HOME/.config/nvim`
+
 ## Installing NeoVim on Ubuntu
 ```
 sudo apt-get install software-properties-common

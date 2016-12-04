@@ -1,6 +1,10 @@
 let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
+"""""""""""""""""""""""""""""""
+" => ML
+"""""""""""""""""""""""""""""""
+Plug 'cypok/vim-sml'
 
 """""""""""""""""""""""""""""""
 " => Elm
@@ -175,6 +179,7 @@ Plug 'othree/html5.vim'
 Plug 'gorodinskiy/vim-coloresque'
 
 
+
 """""""""""""""""""""""""""""""
 " => Color themes
 """""""""""""""""""""""""""""""
@@ -185,5 +190,6 @@ let g:jellybeans_overrides = {
 \				    'ctermfg': 'Black', 'ctermbg': 'Yellow',
 \			        'attr': 'bold' }
 \}
+
 
 call plug#end()

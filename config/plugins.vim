@@ -2,9 +2,10 @@ let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""""
-" => ML
+" => Dash.app
 """""""""""""""""""""""""""""""
-Plug 'cypok/vim-sml'
+Plug 'rizzatti/dash.vim'
+nmap <silent> K <Plug>DashSearch
 
 """""""""""""""""""""""""""""""
 " => Elm

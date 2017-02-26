@@ -2,12 +2,6 @@ let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""""
-" => Dash.app
-"""""""""""""""""""""""""""""""
-Plug 'rizzatti/dash.vim'
-nmap <silent> K <Plug>DashSearch
-
-"""""""""""""""""""""""""""""""
 " => Elm
 """""""""""""""""""""""""""""""
 Plug 'elmcast/elm-vim'
@@ -132,8 +126,8 @@ Plug 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
-map <C-k> <Plug>(expand_region_expand)
-map <C-j> <Plug>(expand_region_shrink)
+map <C-j> <Plug>(expand_region_expand)
+map <C-k> <Plug>(expand_region_shrink)
 
 """""""""""""""""""""""""""""""
 " => Tim Pope essentials

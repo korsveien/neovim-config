@@ -24,7 +24,7 @@ let g:elm_syntastic_show_warnings = 1
 
 
 """""""""""""""""""""""""""""""
-" => Deoplete
+" => Deoplete + neosnippet
 """""""""""""""""""""""""""""""
 " Note: deoplete requires Neovim(latest is recommended) with Python3 enabled.
 " Pro tip: Check if ":echo has('python3')" returns `1`
@@ -36,13 +36,31 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/context_filetype.vim'
 
+let g:neosnippet#disable_runtime_snippets = {
+			\   '_' : 1,
+			\ }
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.elm = '[a-zA-Z_\.]{2,0}'
+let g:deoplete#omni#functions = {}
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['file', 'neosnippet']
+let g:deoplete#omni#input_patterns = {}
 
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:deoplete#omni#functions.elm = ['elm#Complete']
+let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
 
 """""""""""""""""""""""""""""""
 " => JS (tern, jsx)
@@ -98,15 +116,6 @@ let g:airline#extensions#tabline#enabled = 0
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 
 
-"""""""""""""""""""""""""""""""
-" => UltiSnip
-"""""""""""""""""""""""""""""""
-Plug 'SirVer/ultisnips'
-
-" This plugins conflicts with ycm when using tab
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 """""""""""""""""""""""""""""""
 " => Ag (searching code)
@@ -125,9 +134,6 @@ Plug 'plasticboy/vim-markdown'
 " => Sublimeish features
 """""""""""""""""""""""""""""""
 Plug 'terryma/vim-multiple-cursors'
-Plug 'terryma/vim-expand-region'
-map <C-j> <Plug>(expand_region_expand)
-map <C-k> <Plug>(expand_region_shrink)
 
 """""""""""""""""""""""""""""""
 " => Tim Pope essentials
@@ -159,6 +165,11 @@ au FileType vim,html,elm let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 " Automatically generate tags
 Plug 'fntlnz/atags.vim'
+let g:atags_build_commands_list = [
+    \"ctags --exclude=node_modules -R -f tags.tmp",
+    \"awk 'length($0) < 400' tags.tmp > tags",
+    \"rm tags.tmp"
+    \]
 " Generate tags on each file write
 autocmd BufWritePost * call atags#generate()
 

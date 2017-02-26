@@ -77,13 +77,6 @@ set wildignore+=*.o,*.obj,*.a,*.iml
 
 
 """""""""""""""""""""""""""""""
-" => NerdTree
-"""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree'
-nmap <C-h> :NERDTreeToggle<CR>
-
-
-"""""""""""""""""""""""""""""""
 " => Emmet
 """""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
@@ -154,6 +147,14 @@ Plug 'tpope/vim-fugitive'
 
 nmap <Leader>g :Gst<CR>
 
+"""""""""""""""""""""""""""""""
+" => NERDTree + Tagbar = <3
+"""""""""""""""""""""""""""""""
+Plug 'scrooloose/nerdtree'
+Plug 'pseewald/nerdtree-tagbar-combined'
+Plug 'majutsushi/tagbar'
+nmap <C-l> :TagbarToggle<cr>
+nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
 
 """""""""""""""""""""""""""""""
 " => Misc.
@@ -166,9 +167,6 @@ au FileType vim,html,elm let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 Plug 'fntlnz/atags.vim'
 " Generate tags on each file write
 autocmd BufWritePost * call atags#generate()
-
-Plug 'majutsushi/tagbar'
-nmap <C-l> :TagbarToggle<cr>
 
 Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'

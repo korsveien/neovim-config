@@ -11,7 +11,7 @@ nmap <silent> K <Plug>DashSearch
 " => Elm
 """""""""""""""""""""""""""""""
 Plug 'elmcast/elm-vim'
-let g:elm_jump_to_error = 1
+let g:elm_jump_to_error = 0
 let g:elm_make_output_file = "make/out.js"
 let g:elm_make_show_warnings = 0
 " let g:elm_browser_command = ""
@@ -162,6 +162,10 @@ nmap <Leader>g :Gst<CR>
 Plug 'Raimondi/delimitMate'
 au FileType vim,html,elm let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
+" Automatically generate tags
+Plug 'fntlnz/atags.vim'
+" Generate tags on each file write
+autocmd BufWritePost * call atags#generate()
 
 Plug 'majutsushi/tagbar'
 nmap <C-l> :TagbarToggle<cr>

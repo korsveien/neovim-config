@@ -24,43 +24,13 @@ let g:elm_syntastic_show_warnings = 1
 
 
 """""""""""""""""""""""""""""""
-" => Deoplete + neosnippet
+" => Deoplete
 """""""""""""""""""""""""""""""
-" Note: deoplete requires Neovim(latest is recommended) with Python3 enabled.
-" Pro tip: Check if ":echo has('python3')" returns `1`
-"
-" If it returns 0, run (or if it returns 1, but deoplete still does not work):
-" $ pip3 install neovim
+Plug 'Shougo/deoplete.nvim'
+Plug 'pbogut/deoplete-elm'
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/context_filetype.vim'
-
-let g:neosnippet#disable_runtime_snippets = {
-			\   '_' : 1,
-			\ }
-let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#functions = {}
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['file', 'neosnippet']
-let g:deoplete#omni#input_patterns = {}
-
-let g:deoplete#omni#functions.elm = ['elm#Complete']
-let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
-let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
-
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-j>     <Plug>(neosnippet_expand_target)
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 """""""""""""""""""""""""""""""
 " => JS (tern, jsx)

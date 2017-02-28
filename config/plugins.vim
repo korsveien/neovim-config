@@ -22,15 +22,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 
-
 """""""""""""""""""""""""""""""
-" => Deoplete
+" => UltiSnips
 """""""""""""""""""""""""""""""
-Plug 'Shougo/deoplete.nvim'
-Plug 'pbogut/deoplete-elm'
+Plug 'SirVer/UltiSnips'
 
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 """""""""""""""""""""""""""""""
 " => JS (tern, jsx)

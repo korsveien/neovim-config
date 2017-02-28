@@ -142,7 +142,9 @@ let g:atags_build_commands_list = [
     \"rm tags.tmp"
     \]
 " Generate tags on each file write
-autocmd BufWritePost * call atags#generate()
+" autocmd BufWritePost * call atags#generate()
+
+map <Leader>t :call atags#generate()<cr>
 
 Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'

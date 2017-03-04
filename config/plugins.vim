@@ -172,5 +172,6 @@ let g:jellybeans_overrides = {
 \			        'attr': 'bold' }
 \}
 
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()

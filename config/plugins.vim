@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 " => Elm
 """""""""""""""""""""""""""""""
 Plug 'elmcast/elm-vim'
+Plug 'bitterjug/vim-tagbar-ctags-elm'
+
 let g:elm_jump_to_error = 0
 let g:elm_make_output_file = "make/out.js"
 let g:elm_make_show_warnings = 0
@@ -15,12 +17,9 @@ let g:elm_setup_keybindings = 0
 
 
 """""""""""""""""""""""""""""""
-" => Syntastic
+" => Ale
 """""""""""""""""""""""""""""""
-Plug 'scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
+Plug 'w0rp/ale'
 
 """""""""""""""""""""""""""""""
 " => UltiSnips

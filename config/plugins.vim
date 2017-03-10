@@ -20,16 +20,13 @@ let g:elm_setup_keybindings = 0
 " => Ale
 """""""""""""""""""""""""""""""
 Plug 'w0rp/ale'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """""""""""""""""""""""""""""""
 " => UltiSnips
 """""""""""""""""""""""""""""""
 Plug 'SirVer/UltiSnips'
-
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
 let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 """""""""""""""""""""""""""""""
@@ -123,7 +120,6 @@ nmap <Leader>g :Gst<CR>
 Plug 'scrooloose/nerdtree'
 Plug 'pseewald/nerdtree-tagbar-combined'
 Plug 'majutsushi/tagbar'
-nmap <C-l> :TagbarToggle<cr>
 nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
 
 """""""""""""""""""""""""""""""

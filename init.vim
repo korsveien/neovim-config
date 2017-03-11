@@ -11,8 +11,9 @@ tnoremap <C-[> <C-\><C-n>
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-set background=dark
-colorscheme jellybeans
+set background=light
+"colorscheme jellybeans
+colorscheme solarized
 
 " peder.korsveien avec gmail.com
 " Available From: https://github.com/pederpus/dotvim

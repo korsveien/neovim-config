@@ -168,5 +168,6 @@ let g:jellybeans_overrides = {
 \}
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()

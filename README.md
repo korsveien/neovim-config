@@ -2,10 +2,7 @@ Clone this repo to `$HOME/.config/nvim`
 
 ## Installing NeoVim on Ubuntu
 ```
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install neovim
+sudo apt install neovim
 ```
 ### Prerequisites for the Python modules:
 

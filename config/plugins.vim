@@ -114,6 +114,7 @@ Plug 'tpope/vim-fugitive'
 
 nmap <Leader>g :Gst<CR>
 
+
 """""""""""""""""""""""""""""""
 " => NERDTree + Tagbar = <3
 """""""""""""""""""""""""""""""
@@ -121,6 +122,15 @@ Plug 'scrooloose/nerdtree'
 Plug 'pseewald/nerdtree-tagbar-combined'
 Plug 'majutsushi/tagbar'
 nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
+
+
+"""""""""""""""""""""""""""""""
+" => GitGutter
+"""""""""""""""""""""""""""""""
+Plug 'airblade/vim-gitgutter'
+nnoremap <c-N> :GitGutterNextHunk<CR>
+nnoremap <c-P> :GitGutterPrevHunk<CR>
+nnoremap <c-U> :GitGutterUndoHunk<CR>
 
 """""""""""""""""""""""""""""""
 " => Misc.
@@ -142,7 +152,6 @@ let g:atags_build_commands_list = [
 map <Leader>t :call atags#generate()<cr>
 
 Plug 'godlygeek/tabular'
-Plug 'airblade/vim-gitgutter'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'

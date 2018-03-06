@@ -37,6 +37,12 @@ Plug 'easymotion/vim-easymotion'
 nmap F <Plug>(easymotion-prefix)s
 
 """""""""""""""""""""""""""""""
+" => Golang
+"""""""""""""""""""""""""""""""
+Plug 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+
+"""""""""""""""""""""""""""""""
 " => Elm
 """""""""""""""""""""""""""""""
 Plug 'elmcast/elm-vim'

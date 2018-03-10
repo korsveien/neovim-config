@@ -24,11 +24,18 @@ Plug 'roxma/nvim-completion-manager'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Config <c-u>, <c-j> and <c-k> for parameter expansion and jumping around placeholders.
+inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr> 
+
 """""""""""""""""""""""""""""""
-" => Fuzzy Finder for Unix
+" => UltiSnips
 """""""""""""""""""""""""""""""
-Plug 'junegunn/fzf'
-nnoremap ? :GFiles<CR>
+Plug 'SirVer/UltiSnips'
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
 """""""""""""""""""""""""""""""
 " => Easymotion
@@ -61,26 +68,15 @@ let g:elm_setup_keybindings = 0
 " => Ale
 """""""""""""""""""""""""""""""
 Plug 'w0rp/ale'
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"nmap <silent> <C-p> <Plug>(ale_previous_wrap)
+nmap <silent> <C-l> <Plug>(ale_next_wrap)
 
-"""""""""""""""""""""""""""""""
-" => UltiSnips
-"""""""""""""""""""""""""""""""
-Plug 'SirVer/UltiSnips'
-let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 """""""""""""""""""""""""""""""
 " => JS (tern, jsx)
 """""""""""""""""""""""""""""""
 Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim'
 Plug 'mxw/vim-jsx'
-let g:tern_show_argument_hints='on_hold'
-let g:tern_show_signature_in_pum=1
-let g:tern_map_keys=1
-" set noshowmode
-
 
 """""""""""""""""""""""""""""""
 " => CtrlP
@@ -169,17 +165,10 @@ nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
 " => GitGutter
 """""""""""""""""""""""""""""""
 Plug 'airblade/vim-gitgutter'
-nnoremap <c-N> :GitGutterNextHunk<CR>
-nnoremap <c-P> :GitGutterPrevHunk<CR>
-nnoremap <c-U> :GitGutterUndoHunk<CR>
 
 """""""""""""""""""""""""""""""
 " => Misc.
 """""""""""""""""""""""""""""""
-" Automatic closing of parens, quotes etc.
-Plug 'Raimondi/delimitMate'
-au FileType vim,html,elm let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-
 " Automatically generate tags
 Plug 'fntlnz/atags.vim'
 let g:atags_build_commands_list = [
@@ -192,18 +181,8 @@ let g:atags_build_commands_list = [
 
 map <Leader>t :call atags#generate()<cr>
 
-Plug 'godlygeek/tabular'
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'eagletmt/neco-ghc'
-
-" Omnicomplete and syntax for html5
-Plug 'othree/html5.vim'
-
 " css inline color preview
 Plug 'gorodinskiy/vim-coloresque'
-
 
 """""""""""""""""""""""""""""""
 " => Color themes
@@ -260,6 +239,7 @@ set wildignorecase
 set nu
 set noswapfile
 set t_ut=
+set guicursor=
 tnoremap <C-[> <C-\><C-n>
 
 

@@ -20,22 +20,29 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""
 Plug 'roxma/nvim-completion-manager'
 
-" Use <TAB> to select the popup menu:
+" Use <TAB> to select the popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Expand snippets with <Enter> key
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 
 " Config <c-u>, <c-j> and <c-k> for parameter expansion and jumping around placeholders.
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr> 
 
 """""""""""""""""""""""""""""""
-" => UltiSnips
+" => neosnippet
 """""""""""""""""""""""""""""""
-Plug 'SirVer/UltiSnips'
-let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+imap <c-j>     <Plug>(neosnippet_expand_or_jump)
+vmap <c-j>     <Plug>(neosnippet_expand_or_jump)
+inoremap <silent> <c-u> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+vmap <c-u>     <Plug>(neosnippet_expand_target)
+" expand parameters
+let g:neosnippet#enable_completed_snippet=1
 
 """""""""""""""""""""""""""""""
 " => Easymotion

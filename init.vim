@@ -248,6 +248,7 @@ set noswapfile
 set t_ut=
 set guicursor=
 tnoremap <C-[> <C-\><C-n>
+inoremap {<CR> {<CR>}<C-o>O<TAB>
 
 
 """""""""""""""""""""""""""""""

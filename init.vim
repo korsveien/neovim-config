@@ -9,11 +9,19 @@
 " http://www.8t8.us/vim/vim.html
 " http://dougblack.io/words/a-good-vimrc.html
 
+
+set nofoldenable
+
 """""""""""""""""""""""""""""""
 " => PLUGINS
 """""""""""""""""""""""""""""""
 let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
+
+"""""""""""""""""""""""""""""""
+" => XML
+"""""""""""""""""""""""""""""""
+Plug 'othree/xml.vim'
 
 """""""""""""""""""""""""""""""
 " => Autocomplete
@@ -37,8 +45,8 @@ inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ult
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-imap <c-j>     <Plug>(neosnippet_expand_or_jump)
-vmap <c-j>     <Plug>(neosnippet_expand_or_jump)
+" imap <c-j>     <Plug>(neosnippet_expand_or_jump)
+" vmap <c-j>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent> <c-u> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
 vmap <c-u>     <Plug>(neosnippet_expand_target)
 " expand parameters
@@ -75,8 +83,8 @@ let g:elm_setup_keybindings = 0
 " => Ale
 """""""""""""""""""""""""""""""
 Plug 'w0rp/ale'
-"nmap <silent> <C-p> <Plug>(ale_previous_wrap)
-nmap <silent> <C-l> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 """""""""""""""""""""""""""""""
@@ -259,6 +267,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set background=light
 colorscheme onedark
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " Toggle pastemode if in terminal
 if !has("gui_running")

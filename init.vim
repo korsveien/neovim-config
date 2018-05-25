@@ -19,6 +19,11 @@ let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""""
+" => LaTeX
+"""""""""""""""""""""""""""""""
+Plug 'lervag/vimtex', { 'for': 'tex' }
+
+"""""""""""""""""""""""""""""""
 " => XML
 """""""""""""""""""""""""""""""
 Plug 'othree/xml.vim'
@@ -266,9 +271,9 @@ inoremap {<CR> {<CR>}<C-o>O<TAB>
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set background=light
-colorscheme onedark
+" colorscheme onedark
 " let g:solarized_termcolors=256
-" colorscheme solarized
+colorscheme solarized
 
 " Toggle pastemode if in terminal
 if !has("gui_running")

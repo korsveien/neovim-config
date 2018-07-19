@@ -68,7 +68,7 @@ set wildignore+=*.o,*.obj,*.a,*.iml
 """""""""""""""""""""""""""""""
 " => Emmet
 """""""""""""""""""""""""""""""
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 let g:use_emmet_complete_tag = 1
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 

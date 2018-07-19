@@ -26,54 +26,13 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 """""""""""""""""""""""""""""""
 " => XML
 """""""""""""""""""""""""""""""
-Plug 'othree/xml.vim'
-
-"""""""""""""""""""""""""""""""
-" => Autocomplete
-"""""""""""""""""""""""""""""""
-Plug 'roxma/nvim-completion-manager'
-
-" Use <TAB> to select the popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Expand snippets with <Enter> key
-imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
-
-" Config <c-u>, <c-j> and <c-k> for parameter expansion and jumping around placeholders.
-inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr> 
-
-"""""""""""""""""""""""""""""""
-" => neosnippet
-"""""""""""""""""""""""""""""""
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-
-" imap <c-j>     <Plug>(neosnippet_expand_or_jump)
-" vmap <c-j>     <Plug>(neosnippet_expand_or_jump)
-inoremap <silent> <c-u> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
-vmap <c-u>     <Plug>(neosnippet_expand_target)
-" expand parameters
-let g:neosnippet#enable_completed_snippet=1
-
-"""""""""""""""""""""""""""""""
-" => Easymotion
-"""""""""""""""""""""""""""""""
-Plug 'easymotion/vim-easymotion'
-nmap F <Plug>(easymotion-prefix)s
-
-"""""""""""""""""""""""""""""""
-" => Golang
-"""""""""""""""""""""""""""""""
-Plug 'fatih/vim-go'
-let g:go_fmt_command = "goimports"
+Plug 'othree/xml.vim', { 'for': 'xml' }
 
 """""""""""""""""""""""""""""""
 " => Elm
 """""""""""""""""""""""""""""""
-Plug 'elmcast/elm-vim'
-Plug 'bitterjug/vim-tagbar-ctags-elm'
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
+Plug 'bitterjug/vim-tagbar-ctags-elm', { 'for': 'elm' }
 
 let g:elm_jump_to_error = 0
 let g:elm_make_output_file = "make/out.js"
@@ -91,12 +50,6 @@ Plug 'w0rp/ale'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-
-"""""""""""""""""""""""""""""""
-" => JS (tern, jsx)
-"""""""""""""""""""""""""""""""
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 
 """""""""""""""""""""""""""""""
 " => CtrlP

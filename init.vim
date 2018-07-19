@@ -34,18 +34,38 @@ nmap <Leader>g :Gst<CR>
 " 
 " Formatting and autocomplete
 "
+"
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'sbdchd/neoformat'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
+let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier', 'eslint']
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_fixers = {
             \ 'javascript': ['eslint']
     \}
 let g:ale_fix_on_save = 1
-let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier', 'eslint']
 let g:use_emmet_complete_tag = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
 
 
 "

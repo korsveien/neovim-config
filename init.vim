@@ -13,26 +13,103 @@
 set nofoldenable
 
 """""""""""""""""""""""""""""""
-" => PLUGINS
+" PLUGINS
 """""""""""""""""""""""""""""""
+
 let g:plug_timeout=1000
 call plug#begin('~/.vim/plugged')
 
-"""""""""""""""""""""""""""""""
-" => LaTeX
-"""""""""""""""""""""""""""""""
+"
+"  Tim Pope essentials
+"
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-fugitive'
+
+nmap <Leader>g :Gst<CR>
+
+" 
+" Formatting and autocomplete
+"
+Plug 'w0rp/ale'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'sbdchd/neoformat'
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_fixers = {
+            \ 'javascript': ['eslint']
+    \}
+let g:ale_fix_on_save = 1
+let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier', 'eslint']
+let g:use_emmet_complete_tag = 1
+
+
+"
+" Searching and opening
+" 
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+
+let g:ctrlp_working_path_mode = 'r'
+set wildignore+=**/node_modules/**
+set wildignore+=**/elm-stuff/**
+set wildignore+=**/bin/**
+set wildignore+=**/pkg/**
+set wildignore+=**/build/**
+set wildignore+=*.o,*.obj,*.a,*.iml
+nnoremap <leader>a :Ag
+
+
+"
+" GUI enhancements
+"
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'pseewald/nerdtree-tagbar-combined'
+Plug 'majutsushi/tagbar'
+Plug 'gorodinskiy/vim-coloresque'
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_b = '%{getcwd()}'
+let g:airline_section_c = '%t'
+let g:airline_section_z='%{fugitive#head()}'
+
+" Enable/Disable buffer display on top bar
+let g:airline#extensions#tabline#enabled = 0
+nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
+
+
+"
+" Enhanced features
+"
+Plug 'terryma/vim-multiple-cursors'
+Plug 'fntlnz/atags.vim'
+let g:atags_build_commands_list = [
+    \"ctags --exclude=node_modules -R -f tags.tmp",
+    \"awk 'length($0) < 400' tags.tmp > tags",
+    \"rm tags.tmp"
+    \]
+
+" Generate tags on each file write
+map <Leader>t :call atags#generate()<cr>
+
+
+"
+" Filetype specific
+"
 Plug 'lervag/vimtex', { 'for': 'tex' }
-
-"""""""""""""""""""""""""""""""
-" => XML
-"""""""""""""""""""""""""""""""
 Plug 'othree/xml.vim', { 'for': 'xml' }
-
-"""""""""""""""""""""""""""""""
-" => Elm
-"""""""""""""""""""""""""""""""
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'bitterjug/vim-tagbar-ctags-elm', { 'for': 'elm' }
+Plug 'shime/vim-livedown'
+Plug 'plasticboy/vim-markdown'
 
 let g:elm_jump_to_error = 0
 let g:elm_make_output_file = "make/out.js"
@@ -43,131 +120,9 @@ let g:elm_format_autosave = 1
 let g:elm_setup_keybindings = 0
 
 
-"""""""""""""""""""""""""""""""
-" => Ale
-"""""""""""""""""""""""""""""""
-Plug 'w0rp/ale'
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-
-"""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""
-Plug 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'r'
-
-set wildignore+=**/node_modules/**
-set wildignore+=**/elm-stuff/**
-set wildignore+=**/bin/**
-set wildignore+=**/pkg/**
-set wildignore+=**/build/**
-set wildignore+=*.o,*.obj,*.a,*.iml
-
-
-"""""""""""""""""""""""""""""""
-" => Emmet
-"""""""""""""""""""""""""""""""
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-let g:use_emmet_complete_tag = 1
-"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
-
-"""""""""""""""""""""""""""""""
-" => Airline
-"""""""""""""""""""""""""""""""
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_section_b = '%{getcwd()}'
-let g:airline_section_c = '%t'
-let g:airline_section_z='%{fugitive#head()}'
-
-" Enable/Disable buffer display on top bar
-let g:airline#extensions#tabline#enabled = 0
-
-" Displays all buffers when only one tab is open
-" let g:airline#extensions#tabline#show_buffers = 1
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-
-
-"""""""""""""""""""""""""""""""
-" => Ag (searching code)
-"""""""""""""""""""""""""""""""
-Plug 'rking/ag.vim'
-nnoremap <leader>a :Ag
-
-
-"""""""""""""""""""""""""""""""
-" => Markdown
-"""""""""""""""""""""""""""""""
-Plug 'shime/vim-livedown'
-Plug 'plasticboy/vim-markdown'
-
-
-"""""""""""""""""""""""""""""""
-" => Sublimeish features
-"""""""""""""""""""""""""""""""
-Plug 'terryma/vim-multiple-cursors'
-
-"""""""""""""""""""""""""""""""
-" => Tim Pope essentials
-"""""""""""""""""""""""""""""""
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-fugitive'
-
-nmap <Leader>g :Gst<CR>
-
-
-"""""""""""""""""""""""""""""""
-" => NERDTree + Tagbar = <3
-"""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree'
-Plug 'pseewald/nerdtree-tagbar-combined'
-Plug 'majutsushi/tagbar'
-nmap <C-h> :ToggleNERDTreeAndTagbar<CR>
-
-
-"""""""""""""""""""""""""""""""
-" => GitGutter
-"""""""""""""""""""""""""""""""
-Plug 'airblade/vim-gitgutter'
-
-"""""""""""""""""""""""""""""""
-" => Misc.
-"""""""""""""""""""""""""""""""
-" Automatically generate tags
-Plug 'fntlnz/atags.vim'
-let g:atags_build_commands_list = [
-    \"ctags --exclude=node_modules -R -f tags.tmp",
-    \"awk 'length($0) < 400' tags.tmp > tags",
-    \"rm tags.tmp"
-    \]
-" Generate tags on each file write
-" autocmd BufWritePost * call atags#generate()
-
-map <Leader>t :call atags#generate()<cr>
-
-" css inline color preview
-Plug 'gorodinskiy/vim-coloresque'
-
-"""""""""""""""""""""""""""""""
-" => Color themes
-"""""""""""""""""""""""""""""""
-" Jellybeans
-Plug 'nanotech/jellybeans.vim'
-let g:jellybeans_overrides = {
-\		'Search': { 'guifg': '303030', 'guibg': 'f0f000',
-\				    'ctermfg': 'Black', 'ctermbg': 'Yellow',
-\			        'attr': 'bold' }
-\}
-
+"
+" Color themes
+"
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 
